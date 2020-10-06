@@ -11,11 +11,16 @@ public class MoodAnalyser {
 		this.message=message;
 	}
 	public String analyseMood() {
-		if (message.contains("sad")||message.contains("SAD")||message.contains("Sad")) {
-			return "SAD";
-		} else
-			return "HAPPY";
-	}
+		try {
+	            if (message.contains("Sad") || message.contains("sad")|| message.contains("SAD")) {
+	                return "SAD";
+	            } else {
+	                return "HAPPY";
+	            }
+	        } catch (NullPointerException e) {
+	            return "HAPPY";
+	        }
+	    }
 	private static Logger Log = LogManager.getLogger(MoodAnalyser.class);
 	public static void main(String[] args) {
 		Scanner scan= new Scanner(System.in);
