@@ -5,7 +5,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class MoodAnalyser {
-	public String analyseMood(String message) {
+	String message;
+	public MoodAnalyser() {}
+	public MoodAnalyser(String message) {
+		this.message=message;
+	}
+	public String analyseMood() {
 		if (message.contains("sad")||message.contains("SAD")||message.contains("Sad")) {
 			return "SAD";
 		} else
@@ -14,10 +19,10 @@ public class MoodAnalyser {
 	private static Logger Log = LogManager.getLogger(MoodAnalyser.class);
 	public static void main(String[] args) {
 		Scanner scan= new Scanner(System.in);
-		MoodAnalyser moodAnalyser=new MoodAnalyser();
 		Log.info("Enter message");
 		String message=scan.nextLine();
-		Log.info(moodAnalyser.analyseMood(message));
+		MoodAnalyser moodAnalyser=new MoodAnalyser(message);
+		Log.info(moodAnalyser.analyseMood());
 		
 		
 	}

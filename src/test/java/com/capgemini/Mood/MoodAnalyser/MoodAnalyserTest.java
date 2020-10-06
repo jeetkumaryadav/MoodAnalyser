@@ -2,29 +2,22 @@ package com.capgemini.Mood.MoodAnalyser;
 
 import static org.junit.Assert.*;
 import java.util.*;
+
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class MoodAnalyserTest {
-	private boolean mailValid;
-	private String Email;
-
-	static MoodAnalyser moodAnalyser= null;
-
-	@BeforeClass
-	public static void setUp() {
-		moodAnalyser = new MoodAnalyser();
-	}
-
 
 	@Test
 	public void givenSadMessage_ReturnSad() {
-		assertEquals("NOT SAD","SAD",moodAnalyser.analyseMood("I am sad"));
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am sad");
+		assertEquals("NOT SAD", "SAD", moodAnalyser.analyseMood());
 	}
-    
+
 	@Test
 	public void givenNonSadMessage_ReturnHappy() {
-		assertEquals("SAD","HAPPY",moodAnalyser.analyseMood("I am good"));
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am good");
+		assertEquals("SAD", "HAPPY", moodAnalyser.analyseMood());
 	}
 }
